@@ -1,9 +1,10 @@
 export type TransaccionTipo = 'suscripcion' | 'cancelacion';
-
+export type MetodoNotificacion = 'email' | 'sms';
 export interface Transaccion {
   id: string;
   fondo: string;
   tipo: TransaccionTipo;
   monto: number;
-  fecha: string; // ISO 8601: 2025-07-20T15:00:00Z
+  fecha: string; 
+  metodoNotificacion?: MetodoNotificacion;
 }

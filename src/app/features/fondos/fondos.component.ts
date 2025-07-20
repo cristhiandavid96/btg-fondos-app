@@ -58,13 +58,17 @@ export class FondosComponent implements OnInit {
       ));
     });
 
+    console.log('+++++++++++++',fondo.metodoNotificacion);
     this.historialService.agregarTransaccion({
       id: Date.now().toString(),
       fondo: fondo.nombre,
       tipo: 'suscripcion',
       monto: fondo.montoMinimo,
-      fecha: new Date().toISOString()
+      fecha: new Date().toISOString(),
+      metodoNotificacion: fondo.metodoNotificacion
     }).subscribe();
+
+    
   }
 
 onCancelar(fondo: Fondo) {
@@ -93,7 +97,8 @@ onCancelar(fondo: Fondo) {
       fondo: fondo.nombre,
       tipo: 'cancelacion',
       monto: fondo.montoMinimo,
-      fecha: new Date().toISOString()
+      fecha: new Date().toISOString(),
+      metodoNotificacion: fondo.metodoNotificacion,
     }).subscribe();
   }
 

@@ -1,13 +1,15 @@
 .card {
   border: 2px solid var(--color-primary);
-  padding: 1rem;
-  border-radius: 12px;
+  padding: 1.5rem;
+  border-radius: 16px;
   background-color: var(--color-card-bg);
-  box-shadow: 0 4px 20px 0 rgba(0, 40, 86, 0.10), 0 1.5px 6px 0 rgba(191, 164, 111, 0.08);
+  box-shadow: 0 6px 24px 0 rgba(0, 40, 86, 0.13), 0 2px 8px 0 rgba(191, 164, 111, 0.10);
+  margin-bottom: 1.5rem;
   transition: box-shadow 0.3s, border-color 0.3s;
 
+
   &:hover {
-    box-shadow: 0 8px 32px 0 rgba(0, 40, 86, 0.18), 0 3px 12px 0 rgba(191, 164, 111, 0.12);
+    box-shadow: 0 12px 36px 0 rgba(0, 40, 86, 0.20), 0 4px 16px 0 rgba(191, 164, 111, 0.15);
     border-color: var(--color-accent);
   }
 }
@@ -21,8 +23,46 @@
   margin-top: 0.5rem;
 }
 
-.acciones {
+.notificacion-selector {
+  width: 100%;
   margin-top: 1rem;
+  margin-bottom: 1.5rem; 
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  select {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 2px solid var(--color-primary);
+    border-radius: 12px;
+    background: var(--color-card-bg);
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 2px rgba(191, 164, 111, 0.15);
+    }
+  }
+}
+.notificacion-selector {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.acciones {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
 
   button {
     display: block;

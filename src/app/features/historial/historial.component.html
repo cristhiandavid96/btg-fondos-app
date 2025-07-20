@@ -8,6 +8,10 @@
     <mat-card-content>
       <p>Monto: {{ t.monto | currency: 'COP':'symbol':'1.0-0' }}</p>
       <p>Fecha: {{ t.fecha | date: 'medium' }}</p>
+      <p *ngIf="t.metodoNotificacion">
+        Método de notificación: 
+        {{ t.metodoNotificacion === 'email' ? 'Correo electrónico' : 'Mensaje de texto (SMS)' }}
+      </p>
     </mat-card-content>
   </mat-card>
 </ng-container>
