@@ -12,4 +12,9 @@ export class FondosService {
   getFondos(): Observable<Fondo[]> {
     return this.http.get<Fondo[]>(this.apiUrl);
   }
+
+  actualizarFondo(fondo: Fondo): Observable<Fondo> {
+    return this.http.patch<Fondo>(`http://localhost:3000/fondos/${fondo.id}`, { suscrito: fondo.suscrito });
+  }
+
 }

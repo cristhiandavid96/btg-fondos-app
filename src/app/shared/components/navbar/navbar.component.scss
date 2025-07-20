@@ -1,0 +1,18 @@
+mat-toolbar {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 40, 86, 0.10);
+
+  button[mat-button] {
+    color: #fff;
+    font-weight: 600;
+    margin-right: 1rem;
+    border-radius: 20px;
+    transition: background 0.2s;
+
+    &:hover, &.active, &:focus {
+      background: var(--color-accent);
+      color: var(--color-primary);
+    }
+  }
+}

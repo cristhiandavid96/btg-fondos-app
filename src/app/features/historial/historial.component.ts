@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { Transaccion } from './models/historial.model';
+import { HistorialService } from './services/historial.service';
 
 @Component({
   selector: 'app-historial',
   standalone: true,
+  imports: [CommonModule, MatCardModule],
   templateUrl: './historial.component.html',
-  styleUrl: './historial.component.scss'
+  styleUrls: ['./historial.component.scss'],
 })
 export class HistorialComponent {
-  // Component logic goes here
+  private historialService = inject(HistorialService);
 
+  readonly transacciones = signal<Transaccion[]>([]);
+
+  ngOnInit() {
+    this.historialService.obtenerHistorial().subscribe(this.transacciones.set);
+  }
 }
