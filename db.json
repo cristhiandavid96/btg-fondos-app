@@ -19,7 +19,7 @@
       "nombre": "DEUDAPRIVADA",
       "montoMinimo": 50000,
       "categoria": "FIC",
-      "suscrito": false
+      "suscrito": true
     },
     {
       "id": "4",
@@ -36,119 +36,13 @@
       "suscrito": false
     }
   ],
-  "usuario": {
-    "item": {
-      "item": {
-        "item": {
-          "item": {
-            "item": {
-              "item": {
-                "item": {
-                  "item": {
-                    "item": {
-                      "item": {
-                        "item": {
-                          "item": {
-                            "item": {
-                              "item": {
-                                "item": {
-                                  "item": {
-                                    "item": {
-                                      "item": {
-                                        "item": {
-                                          "item": {
-                                            "item": {
-                                              "item": {
-                                                "item": {
-                                                  "item": {
-                                                    "item": {
-                                                      "item": {
-                                                        "item": {
-                                                          "item": {
-                                                            "item": {
-                                                              "item": {
-                                                                "item": {
-                                                                  "item": {
-                                                                    "item": {
-                                                                      "item": {
-                                                                        "item": {
-                                                                          "item": {
-                                                                            "id": 1,
-                                                                            "nombre": "Cliente Demo",
-                                                                            "saldo": 500000
-                                                                          },
-                                                                          "saldo": 575000
-                                                                        },
-                                                                        "saldo": 500000
-                                                                      },
-                                                                      "saldo": 375000
-                                                                    },
-                                                                    "saldo": 450000
-                                                                  },
-                                                                  "saldo": 575000
-                                                                },
-                                                                "saldo": 500000
-                                                              },
-                                                              "saldo": 575000
-                                                            },
-                                                            "saldo": 450000
-                                                          },
-                                                          "saldo": 575000
-                                                        },
-                                                        "saldo": 525000
-                                                      },
-                                                      "saldo": 450000
-                                                    },
-                                                    "saldo": 525000
-                                                  },
-                                                  "saldo": 575000
-                                                },
-                                                "saldo": 500000
-                                              },
-                                              "saldo": 425000
-                                            },
-                                            "saldo": 500000
-                                          },
-                                          "saldo": 425000
-                                        },
-                                        "saldo": 500000
-                                      },
-                                      "saldo": 425000
-                                    },
-                                    "saldo": 500000
-                                  },
-                                  "saldo": 425000
-                                },
-                                "saldo": 500000
-                              },
-                              "saldo": 425000
-                            },
-                            "saldo": 500000
-                          },
-                          "saldo": 375000
-                        },
-                        "saldo": 500000
-                      },
-                      "saldo": 425000
-                    },
-                    "saldo": 300000
-                  },
-                  "saldo": 375000
-                },
-                "saldo": 500000
-              },
-              "saldo": 425000
-            },
-            "saldo": 500000
-          },
-          "saldo": 375000
-        },
-        "saldo": 325000
-      },
-      "saldo": 450000
-    },
-    "saldo": 500000
-  },
+  "usuario": [
+    {
+      "id": "1",
+      "nombre": "Cliente Demo",
+      "saldo": 525000
+    }
+  ],
   "notificaciones": [
     {
       "id": "1",
@@ -159,5 +53,13 @@
       "tipo": "sms"
     }
   ],
-  "historial": []
+  "historial": [
+    {
+      "id": "1753029145912",
+      "fondo": "DEUDAPRIVADA",
+      "tipo": "suscripcion",
+      "monto": 50000,
+      "fecha": "2025-07-20T16:32:25.912Z"
+    }
+  ]
 }

@@ -30,7 +30,7 @@ export class FondosComponent implements OnInit {
     this.fondosService.getFondos().subscribe(fondos => {
       this.fondos$.next(fondos);
     });
-  // this.delete()
+   // this.delete()
   }
 
   delete(){
