@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
 import { Fondo } from "../../../core/models/fondos.model";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms"; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { TextosService } from "../../../core/services/textos.service";
 
 @Component({
   selector: 'app-fondo-card',
@@ -14,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
   template: `
     <div class="card">
       <h3>{{ fondo.nombre }}</h3>
-      <p>Monto mínimo: <b>{{ fondo.montoMinimo | currency: 'COP' }}</b></p>
+      <p>{{textos.get('minimumAmount')}}<b>{{ fondo.montoMinimo | currency: 'COP' }}</b></p>
       <span class="badge">{{ fondo.categoria }}</span>
 
       <div class="notificacion-selector" *ngIf="!fondo.suscrito">
@@ -41,6 +42,7 @@ export class FondoCardComponent {
   @Output() suscribirse = new EventEmitter<any>();
   @Output() cancelar = new EventEmitter<any>();
   metodoNotificacion: 'email' | 'sms' = 'email';
+  textos = inject(TextosService);
 
   onSuscribirse() {    
     this.suscribirse.emit({

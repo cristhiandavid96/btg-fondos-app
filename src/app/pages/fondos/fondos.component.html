@@ -1,6 +1,6 @@
-<h2>Lista de Fondos Disponibles</h2>
+<h2>{{textos.get('availableFundsList')}}</h2>
 
-<div class="saldo">💰 Saldo actual: {{ saldo$ | async | currency:'COP' }}</div>
+<div class="saldo">💰 {{textos.get('currentBalance')}} {{ saldo$ | async | currency:'COP' }}</div>
 
 <div *ngIf="errorMsg" class="alerta">{{ errorMsg }}</div>
 
@@ -15,5 +15,5 @@
 
 
 <ng-template #loading>
-  <p>Cargando fondos...</p>
+  {{textos.get('loadingFunds')}}
 </ng-template>

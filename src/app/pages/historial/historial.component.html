@@ -1,4 +1,4 @@
-<h2>📜 Historial de Transacciones</h2>
+<h2>📜 {{textos.get('transactionHistory')}}</h2>
 
 <ng-container *ngIf="transacciones().length; else sinTransacciones">
   <mat-card *ngFor="let t of transacciones()" class="transaccion-card">
@@ -6,10 +6,10 @@
       {{ t.tipo | titlecase }} en {{ t.fondo }}
     </mat-card-title>
     <mat-card-content>
-      <p>Monto: {{ t.monto | currency: 'COP':'symbol':'1.0-0' }}</p>
-      <p>Fecha: {{ t.fecha | date: 'medium' }}</p>
+      <p>{{textos.get('amount')}} {{ t.monto | currency: 'COP':'symbol':'1.0-0' }}</p>
+      <p>{{textos.get('date')}}  {{ t.fecha | date: 'medium' }}</p>
       <p *ngIf="t.metodoNotificacion">
-        Método de notificación: 
+        {{textos.get('notificationMethod')}}
         {{ t.metodoNotificacion === 'email' ? 'Correo electrónico' : 'Mensaje de texto (SMS)' }}
       </p>
     </mat-card-content>
@@ -17,5 +17,5 @@
 </ng-container>
 
 <ng-template #sinTransacciones>
-  <p>No hay transacciones registradas.</p>
+  <p>{{textos.get('noTransactions')}}</p>
 </ng-template>

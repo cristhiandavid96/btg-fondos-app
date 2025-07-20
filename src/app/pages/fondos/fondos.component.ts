@@ -6,6 +6,7 @@ import { Fondo } from '../../core/models/fondos.model';
 import { BehaviorSubject } from 'rxjs';
 import { UsuarioService } from '../../core/services/usuario.service';
 import { FondoCardComponent } from '../../shared/components/card/fondo-card.component';
+import { TextosService } from '../../core/services/textos.service';
 
 
 @Component({
@@ -16,6 +17,8 @@ import { FondoCardComponent } from '../../shared/components/card/fondo-card.comp
   styleUrls: ['./fondos.component.scss'],
 })
 export class FondosComponent implements OnInit {
+  
+  textos = inject(TextosService);
   fondosService = inject(FondosService);
   saldo$ = new BehaviorSubject<number>(500000);
   fondos$ = new BehaviorSubject<Fondo[]>([]);

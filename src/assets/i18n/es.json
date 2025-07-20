@@ -1,0 +1,16 @@
+{
+  "currentBalance": "Saldo actual:",
+  "availableFundsList": "Lista de Fondos Disponibles",
+  "minimumAmount": "Monto mínimo:",
+  "category": "Categoría",
+  "notificationMethod": "Método de notificación",
+  "subscribe": "Suscribirse",
+  "cancel": "Cancelar",
+  "email": "Correo electrónico",
+  "sms": "Mensaje de texto (SMS)",
+  "loadingFunds": "Cargando fondos...",
+  "transactionHistory": "Historial de Transacciones",
+  "amount": "Monto:",
+  "date": "Fecha:",
+  "noTransactions": "No hay transacciones registradas."
+}
