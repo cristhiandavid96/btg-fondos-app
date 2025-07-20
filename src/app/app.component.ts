@@ -1,6 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { TextosService } from './core/services/textos.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,4 +13,5 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 })
 export class AppComponent {
   protected readonly title = signal('BTG Fondos App');
+  textos = inject(TextosService);
 }

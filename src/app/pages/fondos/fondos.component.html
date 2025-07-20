@@ -8,6 +8,12 @@
   <app-fondo-card
     *ngFor="let fondo of fondos$ | async"
     [fondo]="fondo"
+    [minimumAmountLabel]="textos.get('minimumAmount')"
+    [notificationMethodLabel]="textos.get('notificationMethod')"
+    [emailLabel]="textos.get('email')"
+    [smsLabel]="textos.get('sms')"
+    [subscribeLabel]="textos.get('subscribe')"
+    [cancelLabel]="textos.get('cancel')"
     (suscribirse)="onSuscribirse($event)"
     (cancelar)="onCancelar($event)"
   ></app-fondo-card>

@@ -12,5 +12,7 @@
   "transactionHistory": "Historial de Transacciones",
   "amount": "Monto:",
   "date": "Fecha:",
-  "noTransactions": "No hay transacciones registradas."
+  "noTransactions": "No hay transacciones registradas.",
+  "funds": "Fondos",
+  "history": "Historial"
 }

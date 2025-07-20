@@ -1,11 +1,10 @@
-import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Fondo } from "../../../core/models/fondos.model";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms"; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import { TextosService } from "../../../core/services/textos.service";
 
 @Component({
   selector: 'app-fondo-card',
@@ -15,23 +14,23 @@ import { TextosService } from "../../../core/services/textos.service";
   template: `
     <div class="card">
       <h3>{{ fondo.nombre }}</h3>
-      <p>{{textos.get('minimumAmount')}}<b>{{ fondo.montoMinimo | currency: 'COP' }}</b></p>
+      <p>{{ minimumAmountLabel }}<b>{{ fondo.montoMinimo | currency: 'COP' }}</b></p>
       <span class="badge">{{ fondo.categoria }}</span>
 
       <div class="notificacion-selector" *ngIf="!fondo.suscrito">
-        <label for="metodoNotificacion">Método de notificación</label>
+        <label for="metodoNotificacion">{{ notificationMethodLabel }}</label>
         <select id="metodoNotificacion" [(ngModel)]="metodoNotificacion">
-          <option value="email">Correo electrónico</option>
-          <option value="sms">Mensaje de texto (SMS)</option>
+          <option value="email">{{ emailLabel }}</option>
+          <option value="sms">{{ smsLabel }}</option>
         </select>
       </div>
 
       <div class="acciones">
         <button mat-raised-button color="primary" *ngIf="!fondo.suscrito" (click)="onSuscribirse()">
-          Suscribirse
+          {{ subscribeLabel }}
         </button>
         <button mat-raised-button color="accent" *ngIf="fondo.suscrito" (click)="onCancelar()">
-          Cancelar
+          {{ cancelLabel }}
         </button>
       </div>
     </div>
@@ -39,10 +38,15 @@ import { TextosService } from "../../../core/services/textos.service";
 })
 export class FondoCardComponent {
   @Input() fondo!: Fondo;
+  @Input() minimumAmountLabel = '';
+  @Input() notificationMethodLabel = '';
+  @Input() emailLabel = '';
+  @Input() smsLabel = '';
+  @Input() subscribeLabel = '';
+  @Input() cancelLabel = '';
   @Output() suscribirse = new EventEmitter<any>();
   @Output() cancelar = new EventEmitter<any>();
   metodoNotificacion: 'email' | 'sms' = 'email';
-  textos = inject(TextosService);
 
   onSuscribirse() {    
     this.suscribirse.emit({
