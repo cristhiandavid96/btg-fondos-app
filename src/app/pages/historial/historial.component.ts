@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { Transaccion } from './models/historial.model';
-import { HistorialService } from './services/historial.service';
+import { Transaccion } from '../../core/models/historial.model';
+import { HistorialService } from '../../core/services/historial.service';
 
 @Component({
   selector: 'app-historial',
@@ -12,7 +12,7 @@ import { HistorialService } from './services/historial.service';
   styleUrls: ['./historial.component.scss'],
 })
 export class HistorialComponent {
-  private historialService = inject(HistorialService);
+  private readonly historialService = inject(HistorialService);
 
   readonly transacciones = signal<Transaccion[]>([]);
 

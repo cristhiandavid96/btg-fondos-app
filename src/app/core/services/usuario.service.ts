@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class UsuarioService {
+  private readonly apiUrl = 'http://localhost:3000/usuario/1';
 
-  constructor() { }
+  constructor(private readonly http: HttpClient) {}
 
-  // Example method to demonstrate functionality
-  getUsuario() {
-    // Logic to fetch user data
-    return {};
+  obtenerUsuario(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
   }
-  
+
+  actualizarSaldo(saldo: number): Observable<any> {
+    return this.http.patch<any>(this.apiUrl, { saldo });
+  }
 }

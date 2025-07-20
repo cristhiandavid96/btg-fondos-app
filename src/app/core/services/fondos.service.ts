@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class FondosService {
   private readonly apiUrl = 'http://localhost:3000/fondos';
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   getFondos(): Observable<Fondo[]> {
     return this.http.get<Fondo[]>(this.apiUrl);

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { Fondo } from "../models/fondos.model";
+import { Fondo } from "../../../core/models/fondos.model";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms"; 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-fondo-card',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule, MatButtonModule], // <-- Agrega FormsModule aquí
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule, MatButtonModule],
   styleUrls: ['./fondo-card.component.scss'],
   template: `
     <div class="card">
@@ -42,9 +42,7 @@ export class FondoCardComponent {
   @Output() cancelar = new EventEmitter<any>();
   metodoNotificacion: 'email' | 'sms' = 'email';
 
-  onSuscribirse() {
-    console.log('this.metodoNotificacion',this.metodoNotificacion);
-    
+  onSuscribirse() {    
     this.suscribirse.emit({
       ...this.fondo,
       metodoNotificacion: this.metodoNotificacion

@@ -1,6 +1,5 @@
 @use '@angular/material' as mat;
 
-// Definimos las variables de color personalizadas
 :root {
   --color-primary: #002856;
   --color-accent: #bfa46f;
@@ -9,20 +8,19 @@
   --color-text: #1c1c1c;
 }
 
-// Theming de Angular Material (Material 3)
 @include mat.core();
 
 html {
-  // Establece el modo claro por defecto
+
   color-scheme: light;
 
-  // Colores del sistema Material Design 3
+  
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
 }
 
-// Estilos base y de tipografía
+
 html, body {
   height: 100%;
   margin: 0;
@@ -31,13 +29,13 @@ html, body {
   color: var(--color-text);
 }
 
-// Encabezados
+
 h1, h2 {
   color: var(--color-primary);
   margin-bottom: 1rem;
 }
 
-// Botón con estilo personalizado sobre Material
+
 button.mat-raised-button {
   background-color: var(--color-primary);
   color: white;
@@ -47,6 +45,6 @@ button.mat-raised-button {
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #001e40; // versión oscura del azul
+    background-color: #001e40; 
   }
 }

@@ -1,11 +1,11 @@
-import { HistorialService } from '../historial/services/historial.service';
-import { FondoCardComponent } from './components/fondo-card.component';
+import { HistorialService } from '../../core/services/historial.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule,AsyncPipe} from '@angular/common';
-import { FondosService } from './services/fondos.service';
-import { Fondo } from './models/fondos.model';
+import { FondosService } from '../../core/services/fondos.service';
+import { Fondo } from '../../core/models/fondos.model';
 import { BehaviorSubject } from 'rxjs';
-import { UsuarioService } from './services/usuario.service';
+import { UsuarioService } from '../../core/services/usuario.service';
+import { FondoCardComponent } from '../../shared/components/card/fondo-card.component';
 
 
 @Component({
@@ -30,6 +30,7 @@ export class FondosComponent implements OnInit {
     this.fondosService.getFondos().subscribe(fondos => {
       this.fondos$.next(fondos);
     });
+    /*descomentar para borrar el historial*/
     //this.delete()
   }
 
@@ -58,7 +59,6 @@ export class FondosComponent implements OnInit {
       ));
     });
 
-    console.log('+++++++++++++',fondo.metodoNotificacion);
     this.historialService.agregarTransaccion({
       id: Date.now().toString(),
       fondo: fondo.nombre,

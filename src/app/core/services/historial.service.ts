@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class HistorialService {
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   obtenerHistorial(): Observable<Transaccion[]> {
     return this.http.get<Transaccion[]>('http://localhost:3000/historial');
