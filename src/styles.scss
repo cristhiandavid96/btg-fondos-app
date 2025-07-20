@@ -1,33 +1,52 @@
-
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
-html {
-  @include mat.theme((
-    color: (
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+// Definimos las variables de color personalizadas
+:root {
+  --color-primary: #002856;
+  --color-accent: #bfa46f;
+  --color-light-bg: #f9f9f9;
+  --color-card-bg: #ffffff;
+  --color-text: #1c1c1c;
+}
 
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
+// Theming de Angular Material (Material 3)
+@include mat.core();
+
+html {
+  // Establece el modo claro por defecto
   color-scheme: light;
 
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
+  // Colores del sistema Material Design 3
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
-}/* You can add global styles to this file, and also import other style files */
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Estilos base y de tipografía
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', "Helvetica Neue", sans-serif;
+  background-color: var(--color-light-bg);
+  color: var(--color-text);
+}
+
+// Encabezados
+h1, h2 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+// Botón con estilo personalizado sobre Material
+button.mat-raised-button {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #001e40; // versión oscura del azul
+  }
+}

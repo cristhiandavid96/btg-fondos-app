@@ -1,0 +1,19 @@
+<h2>Lista de Fondos Disponibles</h2>
+
+<div class="saldo">💰 Saldo actual: {{ saldo$ | async | currency:'COP' }}</div>
+
+<div *ngIf="errorMsg" class="alerta">{{ errorMsg }}</div>
+
+<div class="fondos-grid">
+  <app-fondo-card
+    *ngFor="let fondo of fondos$ | async"
+    [fondo]="fondo"
+    (suscribirse)="onSuscribirse($event)"
+    (cancelar)="onCancelar($event)"
+  ></app-fondo-card>
+</div>
+
+
+<ng-template #loading>
+  <p>Cargando fondos...</p>
+</ng-template>

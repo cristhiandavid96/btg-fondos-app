@@ -1,0 +1,42 @@
+.card {
+  border: 2px solid var(--color-primary);
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: var(--color-card-bg);
+  box-shadow: 0 4px 20px 0 rgba(0, 40, 86, 0.10), 0 1.5px 6px 0 rgba(191, 164, 111, 0.08);
+  transition: box-shadow 0.3s, border-color 0.3s;
+
+  &:hover {
+    box-shadow: 0 8px 32px 0 rgba(0, 40, 86, 0.18), 0 3px 12px 0 rgba(191, 164, 111, 0.12);
+    border-color: var(--color-accent);
+  }
+}
+
+.badge {
+  background: #e0e0e0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.acciones {
+  margin-top: 1rem;
+
+  button {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--color-primary);
+  }
+
+  .cancelar {
+    background-color: var(--color-accent);
+  }
+}

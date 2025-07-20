@@ -1,0 +1,30 @@
+h2 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.saldo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.fondos-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.alerta {
+  background-color: #ffe5e5;
+  border: 1px solid #ff0000;
+  padding: 0.75rem;
+  color: #900;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.fondos-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem 1rem;
+}

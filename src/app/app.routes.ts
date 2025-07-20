@@ -9,16 +9,16 @@ export const routes: Routes = [
   {
     path: 'fondos',
     loadChildren: () =>
-      import('./features/fondos/fondos.routes').then(m => m.routes)
+      import('./features/fondos/fondos.component.routes').then(m => m.routes)
   },
   {
     path: 'historial',
     loadChildren: () =>
-      import('./features/historial/historial.routes').then(m => m.routes)
+      import('./features/historial/historial.component.routes').then(m => m.routes)
   },
   {
     path: 'notificaciones',
     loadChildren: () =>
-      import('./features/notificaciones/notificaciones.routes').then(m => m.routes)
+      import('./features/notificaciones/notificaciones.component.routes').then(m => m.routes)
   }
 ];

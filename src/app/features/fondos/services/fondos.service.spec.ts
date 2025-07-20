@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Fondos } from './fondos.service';
+import { FondosService } from './fondos.service';
 
 describe('Fondos', () => {
-  let service: Fondos;
+  let service: FondosService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Fondos);
+    service = TestBed.inject(FondosService);
   });
 
   it('should be created', () => {
