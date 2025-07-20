@@ -19,7 +19,7 @@
       "nombre": "DEUDAPRIVADA",
       "montoMinimo": 50000,
       "categoria": "FIC",
-      "suscrito": true
+      "suscrito": false
     },
     {
       "id": "4",
@@ -40,7 +40,7 @@
     {
       "id": "1",
       "nombre": "Cliente Demo",
-      "saldo": 525000
+      "saldo": 500000
     }
   ],
   "notificaciones": [
@@ -53,13 +53,5 @@
       "tipo": "sms"
     }
   ],
-  "historial": [
-    {
-      "id": "1753029145912",
-      "fondo": "DEUDAPRIVADA",
-      "tipo": "suscripcion",
-      "monto": 50000,
-      "fecha": "2025-07-20T16:32:25.912Z"
-    }
-  ]
+  "historial": []
 }

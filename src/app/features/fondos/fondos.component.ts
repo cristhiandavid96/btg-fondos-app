@@ -30,7 +30,7 @@ export class FondosComponent implements OnInit {
     this.fondosService.getFondos().subscribe(fondos => {
       this.fondos$.next(fondos);
     });
-   // this.delete()
+    //this.delete()
   }
 
   delete(){
@@ -43,22 +43,21 @@ export class FondosComponent implements OnInit {
 
   onSuscribirse(fondo: Fondo) {
     const saldo = this.saldo$.value;
-    const nuevoSaldo = saldo - fondo.montoMinimo;
-    this.saldo$.next(nuevoSaldo);
-    this.usuarioService.actualizarSaldo(nuevoSaldo).subscribe();
 
     if (saldo < fondo.montoMinimo) {
       this.errorMsg = `❌ No tienes saldo suficiente para suscribirte a ${fondo.nombre}`;
       return;
     }
-
-    this.saldo$.next(saldo - fondo.montoMinimo);
+    const nuevoSaldo = saldo - fondo.montoMinimo;
+    this.saldo$.next(nuevoSaldo);
+    this.usuarioService.actualizarSaldo(nuevoSaldo).subscribe();
     this.errorMsg = '';
     this.fondosService.actualizarFondo({ ...fondo, suscrito: true }).subscribe(() => {
       this.fondos$.next(this.fondos$.value.map(f =>
         f.id === fondo.id ? { ...f, suscrito: true } : f
       ));
     });
+
     this.historialService.agregarTransaccion({
       id: Date.now().toString(),
       fondo: fondo.nombre,
@@ -66,27 +65,36 @@ export class FondosComponent implements OnInit {
       monto: fondo.montoMinimo,
       fecha: new Date().toISOString()
     }).subscribe();
-    }
+  }
 
-   onCancelar(fondo: Fondo) {
-    const saldo = this.saldo$.value;
-    const nuevoSaldo = saldo + fondo.montoMinimo;
-    this.saldo$.next(nuevoSaldo);
-    this.usuarioService.actualizarSaldo(nuevoSaldo).subscribe();
-    this.fondosService.actualizarFondo({ ...fondo, suscrito: false }).subscribe(() => {
-      this.fondos$.next(this.fondos$.value.map(f =>
-        f.id === fondo.id ? { ...f, suscrito: false } : f
-      ));
-    });
-    this.errorMsg = '';
-    this.historialService.obtenerHistorial().subscribe(historial => {
-      const transaccion = historial.find(
-        t => t.fondo === fondo.nombre && t.tipo === 'suscripcion'
-      );
-      if (transaccion) {
-        this.historialService.borrarTransaccion(transaccion.id).subscribe();
-      }
-    });
- }
+onCancelar(fondo: Fondo) {
+  const saldo = this.saldo$.value;
+  const nuevoSaldo = saldo + fondo.montoMinimo;
+  this.saldo$.next(nuevoSaldo);
+  this.usuarioService.actualizarSaldo(nuevoSaldo).subscribe();
+  this.fondosService.actualizarFondo({ ...fondo, suscrito: false }).subscribe(() => {
+    this.fondos$.next(this.fondos$.value.map(f =>
+      f.id === fondo.id ? { ...f, suscrito: false } : f
+    ));
+  });
+  this.errorMsg = '';
+
+  this.historialService.obtenerHistorial().subscribe(historial => {
+    const transaccion = historial.find(
+      t => t.fondo === fondo.nombre && t.tipo === 'suscripcion'
+    );
+    if (transaccion) {
+      this.historialService.borrarTransaccion(transaccion.id).subscribe();
+    }
+  });
+  
+  this.historialService.agregarTransaccion({
+      id: Date.now().toString(),
+      fondo: fondo.nombre,
+      tipo: 'cancelacion',
+      monto: fondo.montoMinimo,
+      fecha: new Date().toISOString()
+    }).subscribe();
+  }
 
 }
