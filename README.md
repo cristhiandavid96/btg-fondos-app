@@ -13,10 +13,15 @@ Esta aplicación te permite gestionar tus fondos de inversión de manera sencill
 
 ## 🛠️ Servidor de desarrollo
 
-Para iniciar el servidor de desarrollo, ejecuta:
+Para iniciar la aplicación, ejecuta:
 
 ```bash
-ng serve
+npm run start
+```
+Para iniciar el servidor , ejecuta:
+
+```bash
+npm run api
 ```
 
 Luego abre tu navegador en `http://localhost:4200/`.  
