@@ -18,6 +18,8 @@ export class HistorialComponent {
 
   readonly transacciones = signal<Transaccion[]>([]);
 
+  /* * Obtiene el historial de transacciones del servicio y lo almacena en la señal.
+   * Utiliza el método `set` de la señal para actualizar su valor.*/
   ngOnInit() {
     this.historialService.obtenerHistorial().subscribe(this.transacciones.set);
   }

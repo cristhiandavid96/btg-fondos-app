@@ -49,6 +49,8 @@ export class FondosComponent implements OnInit {
     this.usuarioService.actualizarSaldo(nuevoSaldo).subscribe();
   }
 
+  /* Métodos para manejar suscripciones y cancelaciones de fondos
+    * */
   onSuscribirse(fondo: Fondo) {
     const saldo = this.saldo$.value;
     if (saldo < fondo.montoMinimo) {
@@ -71,6 +73,8 @@ export class FondosComponent implements OnInit {
     }).subscribe();
   }
 
+  /* Métodos para manejar  cancelaciones de fondos
+    * */
   onCancelar(fondo: Fondo) {
     const saldo = this.saldo$.value;
     this.actualizarSaldo(saldo + fondo.montoMinimo);
@@ -98,6 +102,8 @@ export class FondosComponent implements OnInit {
     }).subscribe();
   }
 
+  /* Método para actualizar los fondos localmente
+    * */
   private actualizarFondosLocal(id: string, suscrito: boolean) {
     this.fondos$.next(
       this.fondos$.value.map(f =>
@@ -106,6 +112,8 @@ export class FondosComponent implements OnInit {
     );
   }
 
+  /* Método para borrar el historial de transacciones
+    * */
   deleteHistorial() {
     this.historialService.obtenerHistorial().subscribe(historial => {
       historial.forEach(item => {
